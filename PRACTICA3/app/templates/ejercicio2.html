@@ -1,0 +1,30 @@
+{% extends "base.html" %}
+{% block title %}{{titulo}}{% endblock %}
+{% block content %}
+    <div class="p-4">
+        <h1>{{titulo}}</h1>
+        <h3>Explicación</h3>
+
+        <p class="justify">En computación y matemáticas un algoritmo de ordenamiento es un algoritmo que pone elementos de una lista o un vector en una secuencia
+        dada por una relación de orden, es decir, el resultado de salida ha de ser una permutación —o reordenamiento— de la entrada que satisfaga 
+        la relación de orden dada. Las relaciones de orden más usadas son el orden numérico y el orden lexicográfico. Ordenamientos eficientes son 
+        importantes para optimizar el uso de otros algoritmos (como los de búsqueda y fusión) que requieren listas ordenadas para una ejecución rápida. 
+        También es útil para poner datos en forma canónica y para generar resultados legibles por humanos.</p>
+        
+        <h3>Funcionamiento</h3>
+        <strong><p class="justify">Esta herramienta compara tiempos de ejecución entre distintos algoritmos de ordenación,
+            entre ellos se encuentran Burbuja, Inserción, por mezcla y selección. Deberá proporcionar en el campo de entrada, como parámetro, 
+            el vector a ordenar separado por comas.</p> </strong>   
+
+        <form action="/algoritmos_ordenacion">
+            <label>Introduzca la lista de números a ordenar</label><br>
+            <input type="text" placeholder="7,6,5,4,3,2" name="lista">
+            <input type="submit" value="Calcular" class="btn btn-outline-success my-2 my-sm-0">
+        </form>  
+
+        <h3 class="mt-4">{{subtitulo}}</h3>
+        {% for elemento in lista %}
+            <h5 class="justify resultado">{{ elemento }}</h5>
+        {% endfor %}
+    </div>
+{% endblock %}

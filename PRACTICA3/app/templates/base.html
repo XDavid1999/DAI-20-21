@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="description" content="Práctica 3">
+    <meta name="author" content="David Heredia Cortés">
+    <link rel="icon" href="../static/images/logo.png">
+
+    <title>{% block title %}{{titulo}}{% endblock %}</title>
+    <!-- Custom styles for this template -->
+    <link href="../static/cover.css" rel="stylesheet">
+    <link href="../static/cover2.css" rel="stylesheet">
+
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css" integrity="sha384-TX8t27EcRE3e/ihU7zmQxVncDAy5uIKz4rEkgIXeMed4M0jlfIDPvg6uqKI2xXr2" crossorigin="anonymous">
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+  </head>
+
+   <body>
+        <header>
+            <!-- Fixed navbar -->
+            <nav class="navbar navbar-expand-md navbar-dark bg-dark">
+                <section><img class="mr-2" src="../static/images/logo.png" height="35" width="35" alt="logo"></section>
+                <a class="navbar-brand" href="http://localhost:5000">Práctica 3</a>
+                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarCollapse">
+                    <ul class="navbar-nav mr-auto">
+                        <div class="btn-group">
+                            <div class="dropdown">
+                                <button class="btn btn-dark dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                  Ejercicios
+                                </button>
+                                <div class="dropdown-menu mx-auto" aria-labelledby="dropdownMenuButton">
+                                  <a class="dropdown-item" href="http://localhost:5000///ejercicio2">Algoritmos de Ordenación</a>
+                                  <a class="dropdown-item" href="http://localhost:5000///ejercicio3">Criba de Eratóstenes</a>
+                                  <a class="dropdown-item" href="http://localhost:5000///ejercicio4">Fibonacci</a>
+                                  <a class="dropdown-item" href="http://localhost:5000///ejercicio5">Paréntesis Balanceados</a>
+                                  <a class="dropdown-item" href="http://localhost:5000///ejercicio6">Expresiones Regulares</a>
+                                </div>
+                              </div>
+                          </div>
+                        <li class="nav-item">
+                            <a class="nav-link" href="http://localhost:5000///ejercicioSVG">SVG</a>
+                        </li>
+                    </ul>
+                    {% if not session['user'] %}
+                        <form action="/login" class="form-inline mt-2 mt-md-0" method="POST">
+                            <input class="form-control my-2 mr-sm-2" size="8" type="text" placeholder="User" name="User">
+                            <input class="form-control my-2 mr-sm-2" size="8" type="password" placeholder="Password" name="Password">
+                            <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Log In</button>
+                        </form>
+
+                        <form action="/datos-sesion/registrarse">
+                          <button class="btn btn-warning ml-4" type="submit">Registrarse</button>
+                        </form>
+                    {% else %}    
+                      <div class="dropdown">
+                        <button class="btn btn-dark dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                          User Options
+                        </button>
+                        <div class="dropdown-menu mx-auto" aria-labelledby="dropdownMenuButton">
+                          <a class="dropdown-item" href="http://localhost:5000/datos-sesion/ver">Ver Mis Datos</a>
+                          <a class="dropdown-item" href="http://localhost:5000/datos-sesion/editar">Editar Mis Datos</a>
+                          <form action="/log-out" method="POST">
+                            <button type="submit" class="btn btn-danger mt-2 ml-4">Log Out</button>
+                          </form>
+                        </div>
+                      </div>
+                    {% endif %}
+                </div>
+            </nav>
+        </header>
+
+        <div class="fil principal">
+            <nav class="navbar-dark bg-dark col-2 fil h-100">
+                  <div class="elementos"><strong><h4 class="navbar-brand">Recientes</h4></strong></div>
+                  <div><hr color="red"/></div>                  
+                  <div class="elementos"><a class="nav-link" href="{{session['ultimaspaginas0']}}">{{session['ultimaspaginas0titulo']}}</a></div>
+                  <div class="elementos"><a class="nav-link" href="{{session['ultimaspaginas1']}}">{{session['ultimaspaginas1titulo']}}</a></div>
+                  <div class="elementos mb-4"><a class="nav-link" href="{{session['ultimaspaginas2']}}">{{session['ultimaspaginas2titulo']}}</a></div>
+            </nav>
+
+            <!-- Begin page content -->
+            <main class="col-10 middle">
+                {% block content %}
+                <h1>{{titulo}}</h1> 
+                {{content}}
+                {% endblock %}
+            </main>
+        </div>
+
+        <footer class="footer">
+            <div class="container">
+                <span class="text-muted footerdisp">
+                    <small>David Heredia Cortés ® </small>
+                    <small>Desarrollo de Aplicaciones para Internet 2020-2021</small>
+                </span>
+            </div>
+        </footer>
+  </body>
+</html>

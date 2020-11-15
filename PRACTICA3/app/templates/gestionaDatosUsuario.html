@@ -1,0 +1,20 @@
+{% extends "base.html" %}
+{% block title %}{{titulo}}{% endblock %}
+{% block content %}
+    <div class="p-4">
+        <h1>{{titulo}}</h1>
+        {% if password is not defined %} 
+            <form action="/insertarUsuario" class="mt-2 mt-md-0" method="POST">
+        {% else %} 
+            <form action="/editarDatos" class="mt-2 mt-md-0" method="POST">
+        {% endif %} 
+            <label class="mt-4" for="user"><strong>Usuario</strong></label>
+            <input class="form-control" type="text" value="{{user}}" name="User" {{disabled}}>
+            <label class="mt-4" for="password"><strong>Contraseña</strong></label>
+            <input class="form-control" type="text" value="{{password}}" name="Password" {{disabled}}>
+            {% if not disabled %}
+                <button class="btn btn-outline-success mt-4" type="submit">Modificar</button>
+            {% endif %}
+        </form>
+    </div>
+{% endblock %}

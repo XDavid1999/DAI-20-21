@@ -1,0 +1,28 @@
+{% extends "base.html" %}
+{% block title %}{{titulo}}{% endblock %}
+{% block content %}
+    <div class="p-4">
+        <h1>{{titulo}}</h1>
+        <h3>Explicación</h3>
+
+        <p class="justify">La capacidad de diferenciar entre paréntesis que están correctamente balanceados y aquellos que están desbalanceados es una parte importante del reconocimiento
+             de muchas estructuras de lenguajes de programación.</p>
+        
+        <p class="justify">El algoritmo leerá una cadena de paréntesis de izquierda a derecha y que decida si los símbolos están balanceados.
+             Para resolver este problema necesitamos hacer una observación importante. A medida que usted procesa los símbolos de izquierda a derecha, el 
+             paréntesis de apertura más reciente debe coincidir con el siguiente símbolo de cierre (ver la Figura 4). Además, el primer símbolo de apertura
+              procesado podría tener que esperar hasta que aparezca el último símbolo de cierre. Los símbolos de cierre coinciden con los símbolos de apertura
+               en el orden inverso de su aparición; ellos coinciden de adentro hacia afuera. Ésta es una pista de que las pilas se pueden usar para resolver el problema.</p>
+        <h3>Funcionamiento</h3>
+        <strong><p class="justify">Esta herramienta comprobará si la cadena que se ha introducido está correctamente balanceada.</p> </strong>   
+
+        <form action="/comprueba_cadena">
+            <label>Introduzca la cadena de corchetes a comprobar, separando con comas cada elemento</label><br>
+            <input type="text" placeholder="[,[,],]" name="lista">
+            <input type="submit" value="Comprobar" class="btn btn-outline-success my-2 my-sm-0">
+        </form>
+        
+        <h3 class="mt-4">{{subtitulo}}</h3>
+        <h5 class="justify resultado">{{resultado}}</h5>
+    </div>
+{% endblock %}

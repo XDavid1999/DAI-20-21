@@ -1,0 +1,33 @@
+{% extends "base.html" %}
+{% block title %}{{titulo}}{% endblock %}
+{% block content %}
+    <div class="p-4">
+        <h1>{{titulo}}</h1>
+        <h3>Explicación</h3>
+        <p class="justify">Uno de los problemas más comunes con que nos solemos encontrar al desarrollar cualquier programa informático, es el de procesamiento de texto. 
+            Esta tarea puede resultar bastante trivial para el cerebro humano, ya que nosotros podemos detectar con facilidad que es un número y que una letra,
+             o cuales son palabras que cumplen con un determinado patrón y cuales no; pero estas mismas tareas no son tan fáciles para una computadora. Es por
+              esto, que el procesamiento de texto siempre ha sido uno de los temas más relevantes en las ciencias de la computación. Luego de varias décadas de
+               investigación se logró desarrollar un poderoso y versátil lenguaje que cualquier computadora puede utilizar para reconocer patrones de texto; este
+                lenguale es lo que hoy en día se conoce con el nombre de expresiones regulares.</p>
+        
+                 <p class="justify">Esta pequeña aplicación trata de identificar, con el uso de expresiones regulares:</p>
+        <ul>
+            <li>Cualquier palabra seguida de un espacio y una única letra mayúscula.</li>
+            <li>Correos electrónicos válidos.</li>
+            <li>Números de tarjeta de crédito cuyos dígitos estén separados por - o espacios en blanco cada paquete de cuatro dígitos.</li>
+        </ul>
+
+        <h3>Funcionamiento</h3>
+        <strong><p class="justify">Esta herramienta comprobará si la cadena que se ha introducido es de uno de los tipos que anteriormente se han especificado.</p> </strong>   
+
+        <form action="/exp_regular">
+            <label>Introduzca la expresión a comprobar</label><br>
+            <input type="text" placeholder="correo@correo.com" name="expresion">
+            <input type="submit" value="Comprobar" class="btn btn-outline-success my-2 my-sm-0">
+        </form>
+        
+        <h3>{{subtitulo}}</h1>
+        <h5 class="justify resultado">{{resultado}}</h5>
+    </div>
+{% endblock %}

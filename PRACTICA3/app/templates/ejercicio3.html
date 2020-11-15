@@ -1,0 +1,26 @@
+{% extends "base.html" %}
+{% block title %}{{titulo}}{% endblock %}
+{% block content %}
+    <div class="p-4">
+        <h1>{{titulo}}</h1>
+        <h3>Explicación</h3>
+
+        <p class="justify">La criba de Eratóstenes es un algoritmo que permite hallar todos los números primos menores que un número natural dado. 
+            Se forma una tabla con todos los números naturales comprendidos entre 2 y n, y se van tachando los números que no son 
+            primos de la siguiente manera: Comenzando por el 2, se tachan todos sus múltiplos; comenzando de nuevo, cuando se encuentra
+             un número entero que no ha sido tachado, ese número es declarado primo, y se procede a tachar todos sus múltiplos, así sucesivamente.
+              El proceso termina cuando el cuadrado del siguiente número confirmado como primo es mayor que n.</p>
+        
+        <h3>Funcionamiento</h3>
+        <strong><p class="justify">Esta herramienta nos mostrará la ejecución de este algoritmo sobre el número que introduzcamos en la caja de texto.</p> </strong>   
+
+        <form action="/criba_eratostenes">
+            <label>Introduzca el número a calcular</label><br>
+            <input type="text" placeholder="100" name="numero">
+            <input type="submit" value="Calcular" class="btn btn-outline-success my-2 my-sm-0">
+        </form>  
+    
+        <h3 class="mt-4">{{subtitulo}}</h3>
+        <h5 class="justify resultado">{{ elemento }}</h5>
+    </div>
+{% endblock %}

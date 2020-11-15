@@ -1,0 +1,28 @@
+{% extends "base.html" %}
+{% block title %}{{titulo}}{% endblock %}
+{% block content %}
+    <div class="p-4">
+        <h1>{{titulo}}</h1>
+        <h3>Explicación</h3>
+
+        <p class="justify">En matemáticas, la sucesión o serie de Fibonacci es una sucesión infinita de números naturales. Esta comienza con los números 0 y 1,​ a partir de estos
+        la relación de recurrencia que la define es: «cada término es la suma de los dos anteriores».</p>
+        
+        <p class="justify">A los elementos de esta sucesión se les llama números de Fibonacci. Esta sucesión fue descrita en Europa por Leonardo de Pisa, matemático italiano del
+             siglo XIII también conocido como Fibonacci. Tiene numerosas aplicaciones en ciencias de la computación, matemática y teoría de juegos. También aparece 
+             en configuraciones biológicas, como por ejemplo en las ramas de los árboles, en la disposición de las hojas en el tallo, en las flores de alcachofas y 
+             girasoles, en las inflorescencias del brécol romanesco, en la configuración de las piñas de las coníferas, en la reproducción de los conejos y en cómo
+              el ADN codifica el crecimiento de formas orgánicas complejas. De igual manera, se encuentra en la estructura espiral del caparazón de algunos moluscos, como el nautilus.</p>
+        <h3>Funcionamiento</h3>
+        <strong><p class="justify">Esta herramienta simplemente calculará el término enésimo de esta sucesión, el cual proporcionaremos en la caja de texto.</p> </strong>   
+
+        <form action="/fibonacci">
+            <label>Introduzca el número a calcular</label><br>
+            <input type="text" placeholder="8" name="numero">
+            <input type="submit" value="Calcular" class="btn btn-outline-success my-2 my-sm-0">
+        </form>  
+
+        <h3 class="mt-4">{{subtitulo}}</h3>
+        <h5 class="justify resultado">{{ elemento }}</h5>
+    </div>
+{% endblock %}

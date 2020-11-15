@@ -1,0 +1,33 @@
+{% extends "base.html" %}
+{% block title %}{{titulo}}{% endblock %}
+{% block content %}
+    <div class="m-4">
+        {% with messages = get_flashed_messages() %}
+            {% if messages %}
+                {% for message in messages %}
+                <h1 style="color: #bb1818;"><strong>{{ message }}</strong></h1>
+                {% endfor %}
+            {% endif %}
+        {% endwith %}
+        <h1>{{titulo}}</h1>
+        <p class="justify">Esta es la página inicial de la práctica 3. En este proyecto trabajaremos con bootstrap y jinga para 
+            darforma a nuestra web. Crearemos distintas interfaces y formularios para los ejercicios además de esbozar un sencillo sistema
+            de login y registro.</p>
+
+        <h3>Bootstrap</h3>
+        <p class="justify">Bootstrap es un marco web que se centra en simplificar el desarrollo de páginas web informativas (a diferencia
+            de las aplicaciones web ). El propósito principal de agregarlo a un proyecto web es aplicar las opciones de
+            color, tamaño, fuente y diseño de Bootstrap a ese proyecto. Como tal, el factor principal es si los desarrolladores
+            a cargo encuentran esas opciones de su agrado. Una vez agregado a un proyecto, Bootstrap proporciona definiciones
+                de estilo básicas para todos los elementos HTML . El resultado es una apariencia uniforme para prosa, tablas y 
+                elementos de formulario en todos los navegadores web.. Además, los desarrolladores pueden aprovechar las clases
+                CSS definidas en Bootstrap para personalizar aún más la apariencia de sus contenidos.</p>
+        <h3>Jinja2</h3>
+        <p class="justify">Jinja es un motor de plantillas web para el lenguaje de programación Python. Este es similar al
+             motor de plantillas de Django , pero proporciona expresiones similares a las de Python al tiempo que garantiza que las plantillas se evalúen en una caja de arena . Es un
+              lenguaje de plantilla basado en texto y, por lo tanto, se puede utilizar para generar cualquier marcado y código fuente. El motor de plantillas de Jinja permite la 
+              personalización de etiquetas, filtros, pruebas y globales. Además, a diferencia del motor de plantillas de Django, Jinja permite al diseñador de plantillas llamar
+               a funciones con argumentos sobre objetos. Jinja es el motor de plantilla predeterminado de Flask y también lo utilizan Ansible y Trac .</p>
+        
+    </div>
+{% endblock %}
